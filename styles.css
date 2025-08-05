@@ -218,8 +218,8 @@ body {
 
 .school-bus-container {
     position: relative;
-    width: 400px;
-    height: 300px;
+    width: 500px;
+    height: 400px;
     perspective: 1000px;
 }
 
@@ -242,9 +242,9 @@ body {
 .bus-image {
     max-width: 100%;
     max-height: 100%;
-    width: auto;
+    width: 950px;
     height: auto;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
     transform: rotateY(-15deg) rotateX(5deg);
     transition: transform 0.3s ease;
 }
@@ -545,13 +545,13 @@ body {
     }
     
     .school-bus-container {
-        width: 300px;
-        height: 225px;
+        width: 350px;
+        height: 280px;
     }
     
     .bus-image {
-        max-width: 280px;
-        max-height: 200px;
+        width: 320px;
+        max-height: 250px;
     }
     
     .nav-actions {
@@ -561,6 +561,24 @@ body {
     .btn {
         padding: 0.5rem 1rem;
         font-size: 0.8rem;
+    }
+    
+    /* Statistics Mobile */
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .stat-item {
+        padding: 0.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
     }
 }
 
@@ -578,17 +596,31 @@ body {
     }
     
     .school-bus-container {
-        width: 250px;
-        height: 188px;
+        width: 280px;
+        height: 220px;
     }
     
     .bus-image {
-        max-width: 230px;
-        max-height: 160px;
+        width: 250px;
+        max-height: 180px;
     }
     
     .content-card {
         padding: 1.5rem;
+    }
+    
+    /* Statistics Responsive */
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2.8rem;
+    }
+    
+    .stat-label {
+        font-size: 1rem;
     }
 }
 
@@ -604,6 +636,73 @@ html {
     outline: 2px solid #0395D3;
     outline-offset: 2px;
 }
+
+/* Statistics Section */
+.statistics-section {
+    padding: 4rem 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+}
+
+.stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    align-items: center;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #0395D3;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Statistics Animation */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-item {
+    animation: countUp 0.8s ease-out;
+}
+
+.stat-item:nth-child(1) { animation-delay: 0.1s; }
+.stat-item:nth-child(2) { animation-delay: 0.2s; }
+.stat-item:nth-child(3) { animation-delay: 0.3s; }
+.stat-item:nth-child(4) { animation-delay: 0.4s; }
 
 /* Loading Animation */
 @keyframes fadeInUp {

@@ -172,6 +172,65 @@ window.addEventListener('scroll', throttle(() => {
     // Scroll-based animations can go here
 }, 16)); // ~60fps
 
+// Statistics counter animation
+function animateCounters() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    statNumbers.forEach(stat => {
+        const target = stat.textContent;
+        const isPlus = target.includes('+');
+        const isK = target.includes('K');
+        
+        let numericValue;
+        if (isK) {
+            numericValue = parseInt(target.replace('K+', '').replace('K', '')) * 1000;
+        } else {
+            numericValue = parseInt(target.replace('+', ''));
+        }
+        
+        let current = 0;
+        const increment = numericValue / 50;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= numericValue) {
+                current = numericValue;
+                clearInterval(timer);
+            }
+            
+            let displayValue;
+            if (isK) {
+                displayValue = Math.floor(current / 1000) + 'K';
+            } else {
+                displayValue = Math.floor(current);
+            }
+            
+            if (isPlus) {
+                displayValue += '+';
+            }
+            
+            stat.textContent = displayValue;
+        }, 30);
+    });
+}
+
+// Intersection Observer for statistics
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounters();
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+// Observe statistics section
+document.addEventListener('DOMContentLoaded', () => {
+    const statsSection = document.querySelector('.statistics-section');
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
+});
+
 // Add loading state styles
 const loadingStyles = document.createElement('style');
 loadingStyles.textContent = `
