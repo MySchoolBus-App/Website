@@ -1,0 +1,627 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 50%, #f3e5f5 100%);
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0395D3;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #0395D3;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #0395D3;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.login-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: #0395D3;
+}
+
+/* Button Styles */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0395D3 0%, #42a5f5 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(3, 149, 211, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(3, 149, 211, 0.4);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #0395D3 0%, #64b5f6 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(3, 149, 211, 0.3);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(66, 165, 245, 0.4);
+}
+
+/* Main Content */
+.main-content {
+    padding-top: 100px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+}
+
+.content-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.content-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0395D3;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* School Bus Animation */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.school-bus-container {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.school-bus {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: busFloat 6s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes busFloat {
+    0%, 100% { transform: translateY(0px) rotateY(-15deg) scale(1); }
+    50% { transform: translateY(-10px) rotateY(-15deg) scale(1.02); }
+}
+
+.bus-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    transform: rotateY(-15deg) rotateX(5deg);
+    transition: transform 0.3s ease;
+}
+
+.bus-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.windshield {
+    position: absolute;
+    top: 25px;
+    left: 35px;
+    width: 130px;
+    height: 85px;
+    background: linear-gradient(135deg, #e8f4f8 0%, #d1e7dd 50%, #b0e0e6 100%);
+    border-radius: 8px;
+    border: 4px solid #333;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.grille {
+    position: absolute;
+    bottom: 45px;
+    left: 45px;
+    width: 110px;
+    height: 45px;
+    background: #333;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.grille::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        #222 3px,
+        #222 6px
+    );
+}
+
+.headlights {
+    position: absolute;
+    bottom: 35px;
+    left: 25px;
+    display: flex;
+    gap: 25px;
+}
+
+.headlight {
+    width: 25px;
+    height: 15px;
+    background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+    border-radius: 4px;
+    border: 2px solid #333;
+    box-shadow: 0 0 8px #fff;
+    animation: headlightGlow 2s ease-in-out infinite;
+    position: relative;
+}
+
+.headlight::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    background: #ff9800;
+    border-radius: 50%;
+    animation: turnSignal 1.5s ease-in-out infinite;
+}
+
+@keyframes headlightGlow {
+    0%, 100% { box-shadow: 0 0 10px #fff; }
+    50% { box-shadow: 0 0 20px #fff, 0 0 30px #fff; }
+}
+
+.bus-side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bus-sign {
+    position: absolute;
+    top: 18px;
+    left: 170px;
+    background: #fff;
+    color: #333;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border: 2px solid #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.bus-stripes {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stripe {
+    width: 200px;
+    height: 8px;
+    background: #333;
+    border-radius: 4px;
+}
+
+.bus-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.signal-lights {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    display: flex;
+    gap: 30px;
+}
+
+.signal-light {
+    width: 15px;
+    height: 15px;
+    background: #ff9800;
+    border-radius: 50%;
+    animation: signalBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes signalBlink {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.stop-lights {
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    display: flex;
+    gap: 30px;
+}
+
+.stop-light {
+    width: 15px;
+    height: 15px;
+    background: #f44336;
+    border-radius: 50%;
+    animation: stopBlink 2s ease-in-out infinite;
+}
+
+@keyframes stopBlink {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* Background Elements */
+.background-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 8s ease-in-out infinite;
+}
+
+.bg-shape-1 {
+    top: 10%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #0395D3, #42a5f5);
+    animation-delay: 0s;
+}
+
+.bg-shape-2 {
+    top: 60%;
+    right: 10%;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #e91e63, #f06292);
+    animation-delay: 2s;
+}
+
+.bg-shape-3 {
+    bottom: 20%;
+    left: 20%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #9c27b0, #ba68c8);
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+/* Mobile Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 1rem;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    .hero-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .content-card {
+        padding: 2rem;
+    }
+    
+    .school-bus-container {
+        width: 300px;
+        height: 225px;
+    }
+    
+    .bus-image {
+        max-width: 280px;
+        max-height: 200px;
+    }
+    
+    .nav-actions {
+        gap: 0.5rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .school-bus-container {
+        width: 250px;
+        height: 188px;
+    }
+    
+    .bus-image {
+        max-width: 230px;
+        max-height: 160px;
+    }
+    
+    .content-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Focus Styles for Accessibility */
+.btn:focus,
+.nav-link:focus,
+.login-link:focus {
+    outline: 2px solid #0395D3;
+    outline-offset: 2px;
+}
+
+/* Loading Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content,
+.hero-visual {
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-visual {
+    animation-delay: 0.3s;
+} 
