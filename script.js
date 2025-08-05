@@ -229,7 +229,51 @@ document.addEventListener('DOMContentLoaded', () => {
     if (statsSection) {
         statsObserver.observe(statsSection);
     }
+    
+    // Pricing toggle functionality
+    const toggleSwitch = document.querySelector('.toggle-switch');
+    if (toggleSwitch) {
+        toggleSwitch.addEventListener('click', () => {
+            toggleSwitch.classList.toggle('active');
+            
+            // Update pricing based on toggle state
+            const isAnnual = toggleSwitch.classList.contains('active');
+            updatePricing(isAnnual);
+        });
+    }
 });
+
+// Update pricing based on billing period
+function updatePricing(isAnnual) {
+    const prices = document.querySelectorAll('.plan-price');
+    const buttons = document.querySelectorAll('.plan-button');
+    
+    if (isAnnual) {
+        // Show annual pricing (with discount)
+        prices[0].textContent = '#2.5k /month';
+        prices[1].textContent = '#6k /month';
+        prices[2].textContent = '#8k /month';
+        prices[3].textContent = '#1m /month';
+        
+        // Update toggle labels
+        document.querySelectorAll('.toggle-label').forEach((label, index) => {
+            if (index === 0) label.textContent = 'Bill Monthly';
+            if (index === 1) label.textContent = 'Bill Annually';
+        });
+    } else {
+        // Show monthly pricing
+        prices[0].textContent = '#300k /month';
+        prices[1].textContent = '#700k /month';
+        prices[2].textContent = '#900k /month';
+        prices[3].textContent = '#1.2 million /month';
+        
+        // Update toggle labels
+        document.querySelectorAll('.toggle-label').forEach((label, index) => {
+            if (index === 0) label.textContent = 'Bill Monthly';
+            if (index === 1) label.textContent = 'Bill Annually';
+        });
+    }
+}
 
 // Add loading state styles
 const loadingStyles = document.createElement('style');
