@@ -15,6 +15,10 @@ body {
 }
 
 /* Header Styles */
+.hamburger {
+    display: none;
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -1003,6 +1007,154 @@ html {
 .feature-item:nth-child(2) { animation-delay: 0.2s; }
 .feature-item:nth-child(3) { animation-delay: 0.3s; }
 
+/* Tabbed Interface */
+.role-tabs {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.role-tab {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    background: #f0f4f8;
+    color: #4a5568;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.role-tab:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.role-tab.active {
+    background: #0395D3;
+    color: white;
+    box-shadow: 0 4px 8px rgba(3, 149, 211, 0.3);
+}
+
+/* Ensure steps containers are hidden by default */
+.steps-container {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+/* Only show active tab content */
+.steps-container.active {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Payment Options */
+.payment-options {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: 0.5rem;
+}
+
+.payment-option {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.payment-option:hover {
+    background: #f1f5f9;
+    transform: translateY(-2px);
+}
+
+.payment-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.payment-text {
+    font-size: 0.75rem;
+    color: #4a5568;
+    text-align: center;
+}
+
+.payment-amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.role-tab {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 30px;
+    background: #f0f4f8;
+    color: #4a5568;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.role-tab:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.role-tab.active {
+    background: #0395D3;
+    color: white;
+    box-shadow: 0 4px 15px rgba(3, 149, 211, 0.3);
+}
+
+.steps-container {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.steps-container.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* How It Works Section */
 .how-it-works-section {
     padding: 6rem 0;
@@ -1060,6 +1212,182 @@ html {
     opacity: 0.6;
     pointer-events: none;
 }
+
+/* Tab-specific styles */
+.tab-content {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+/* Mobile card styles */
+.mobile-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 300px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    background: #f8fafc;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: #334155;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Driver-specific styles */
+.driver-welcome {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+.driver-greeting {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0369a1;
+    margin-bottom: 0.5rem;
+}
+
+.route-info {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.route-name {
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.route-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.start-route-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: #0395D3;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.start-route-btn:hover {
+    background: #0284c7;
+    transform: translateY(-1px);
+}
+
+/* Alert styles */
+.alert-list {
+    padding: 0.5rem 0;
+}
+
+.alert-item {
+    display: flex;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    align-items: center;
+}
+
+.alert-icon {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.alert-text {
+    font-size: 0.85rem;
+    color: #334155;
+}
+
+/* Stats grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0369a1;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Admin specific styles */
+.admin-dashboard {
+    padding: 1.5rem;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.admin-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .step-item {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .admin-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .admin-actions .btn {
+        width: 100%;
+    }
+}
+
 
 .step-content {
     display: flex;

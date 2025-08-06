@@ -142,10 +142,19 @@
         <div class="how-it-works-container">
             <h2 class="how-it-works-title">How it works</h2>
             <p class="how-it-works-subtitle">
-                Bringing technology to school transport shouldn't be complicated. MySchoolBus offers an easy 4-step setup that ensures student safety, parent peace of mind, and school efficiency.
+                Bringing technology to school transport shouldn't be complicated. MySchoolBus offers tailored solutions for different users.
             </p>
             
-            <div class="steps-container">
+            <!-- Role Tabs -->
+            <div class="role-tabs">
+                <button class="role-tab active" data-role="parents">For Parents</button>
+                <button class="role-tab" data-role="teachers">For Teachers</button>
+                <button class="role-tab" data-role="drivers">For Drivers</button>
+                <button class="role-tab" data-role="admins">For Schools/Admins</button>
+            </div>
+            
+            <!-- Parents Content -->
+            <div class="steps-container active" id="parents-steps">
                 <!-- Step 01 -->
                 <div class="step-item">
                     <div class="step-number">01</div>
@@ -162,13 +171,101 @@
                             </div>
                         </div>
                         <div class="step-text">
-                            <h3 class="step-title">Install the Tracking Device on School buses</h3>
+                            <h3 class="step-title">1. Register & Link Student</h3>
                             <p class="step-description">
-                                We equip each school bus with a GPS tracking device (powered by Teltonika) and a driver's tablet. The GPS device allows real-time tracking of the bus location on a map.
+                                Sign up and link your child(ren) using their unique school-provided ID or QR code.
                             </p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Step 02 -->
+                <div class="step-item">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Real-time Tracking</div>
+                                <div class="card-content">
+                                    <div class="map-placeholder">
+                                        <div class="map-marker">📍</div>
+                                        <div class="route-line"></div>
+                                        <div class="bus-icon">🚌</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">2. Track & Monitor</h3>
+                            <p class="step-description">
+                                View real-time bus location, trip progress, and get notified when your child boards or exits.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="step-item">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="emoji-container">
+                                    <div class="emoji">🔔</div>
+                                    <div class="emoji">👋</div>
+                                    <div class="emoji">✅</div>
+                                </div>
+                                <div class="notification">
+                                    <div class="notification-header">Notification</div>
+                                    <div class="notification-content">Bus 5 is arriving in 5 minutes</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">3. Attendance & Communication</h3>
+                            <p class="step-description">
+                                Get daily attendance records and communicate with teachers or school admin directly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="step-item">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Payment Portal</div>
+                                <div class="payment-options">
+                                    <div class="payment-option">
+                                        <div class="payment-icon">💳</div>
+                                        <div class="payment-text">Transportation</div>
+                                    </div>
+                                    <div class="payment-option">
+                                        <div class="payment-icon">📚</div>
+                                        <div class="payment-text">Tutoring</div>
+                                    </div>
+                                    <div class="payment-option">
+                                        <div class="payment-icon">📖</div>
+                                        <div class="payment-text">Books</div>
+                                    </div>
+                                </div>
+                                <div class="payment-amount">
+                                    <span>Total Due:</span>
+                                    <span class="amount">$45.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">4. Payments & Services</h3>
+                            <p class="step-description">
+                                Subscribe to services, manage payments, and access additional options like tutoring or book purchases.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
 
                 <!-- Step 02 -->
                 <div class="step-item">
@@ -243,6 +340,439 @@
                                 <li>"Your child boarded at 3:15 PM."</li>
                                 <li>"Bus arriving at your location in 5 mins."</li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Teachers Content -->
+            <div class="steps-container" id="teachers-steps">
+                <!-- Step 01 -->
+                <div class="step-item">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Teacher Portal</div>
+                                <div class="card-content">
+                                    <div class="content-line"></div>
+                                    <div class="content-line"></div>
+                                    <div class="content-line"></div>
+                                </div>
+                                <div class="install-button">Login</div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">1. Login & Dashboard Access</h3>
+                            <p class="step-description">
+                                Login to view assigned classes, student info, and attendance status.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="step-item">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Class Roster</div>
+                                <div class="class-list">
+                                    <div class="student-item">
+                                        <span class="student-name">John Doe</span>
+                                        <span class="status on-bus">On Bus</span>
+                                    </div>
+                                    <div class="student-item">
+                                        <span class="student-name">Jane Smith</span>
+                                        <span class="status absent">Absent</span>
+                                    </div>
+                                    <div class="student-item">
+                                        <span class="student-name">Alex Johnson</span>
+                                        <span class="status on-bus">On Bus</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">2. Manage Attendance</h3>
+                            <p class="step-description">
+                                Take in-class attendance and verify bus boarding status.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="step-item">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Reports</div>
+                                <div class="report-summary">
+                                    <div class="report-metric">
+                                        <div class="metric-value">98%</div>
+                                        <div class="metric-label">On Time</div>
+                                    </div>
+                                    <div class="report-metric">
+                                        <div class="metric-value">2</div>
+                                        <div class="metric-label">Alerts</div>
+                                    </div>
+                                </div>
+                                <div class="view-report-btn">View Details</div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">3. Student Oversight</h3>
+                            <p class="step-description">
+                                Monitor student walk-home permissions, tardiness, or absences.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="step-item">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Engagement Tools</div>
+                                <div class="engagement-options">
+                                    <div class="engagement-option">
+                                        <div class="engagement-icon">💬</div>
+                                        <div class="engagement-text">Class Announcement</div>
+                                    </div>
+                                    <div class="engagement-option">
+                                        <div class="engagement-icon">📝</div>
+                                        <div class="engagement-text">Grade Assignment</div>
+                                    </div>
+                                    <div class="engagement-option">
+                                        <div class="engagement-icon">🎓</div>
+                                        <div class="engagement-text">Tutoring</div>
+                                    </div>
+                                </div>
+                                <div class="engagement-message">
+                                    <div class="message-preview">New message from parent...</div>
+                                    <div class="message-count">3</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">4. Engage Parents & Offer Services</h3>
+                            <p class="step-description">
+                                Send updates, academic notices, or offer paid private tutoring services through the platform.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Schools/Admins Content -->
+            <div class="steps-container" id="admins-steps">
+                <!-- Step 01 -->
+                <div class="step-item">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Admin Dashboard</div>
+                                <div class="admin-welcome">
+                                    <div class="admin-greeting">Welcome, Admin</div>
+                                    <div class="school-stats">
+                                        <div class="stat">
+                                            <div class="stat-value">1,245</div>
+                                            <div class="stat-label">Students</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-value">42</div>
+                                            <div class="stat-label">Buses</div>
+                                        </div>
+                                        <div class="stat">
+                                            <div class="stat-value">98%</div>
+                                            <div class="stat-label">On Time</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="quick-actions">
+                                    <div class="action-btn">Add User</div>
+                                    <div class="action-btn primary">New Route</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">1. Set Up & Configure System</h3>
+                            <p class="step-description">
+                                Add school details, assign staff, drivers, and import student data.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="step-item">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Live Operations</div>
+                                <div class="operations-map">
+                                    <div class="map-placeholder">
+                                        <div class="map-legend">
+                                            <div class="legend-item"><span class="bus-dot"></span> Active Buses (12)</div>
+                                            <div class="legend-item"><span class="alert-dot"></span> Alerts (2)</div>
+                                        </div>
+                                    </div>
+                                    <div class="active-alerts">
+                                        <div class="alert-item critical">
+                                            <div class="alert-icon">⚠️</div>
+                                            <div class="alert-details">
+                                                <div class="alert-title">Bus #12 Delayed</div>
+                                                <div class="alert-time">5 min ago</div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-item warning">
+                                            <div class="alert-icon">ℹ️</div>
+                                            <div class="alert-details">
+                                                <div class="alert-title">Route Change Detour</div>
+                                                <div class="alert-time">15 min ago</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">2. Monitor Operations</h3>
+                            <p class="step-description">
+                                Track buses in real-time, view attendance logs, and manage walk-home settings.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="step-item">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">User Management</div>
+                                <div class="user-roles">
+                                    <div class="role active">
+                                        <div class="role-icon">👨‍💼</div>
+                                        <div class="role-name">Admin</div>
+                                    </div>
+                                    <div class="role">
+                                        <div class="role-icon">👩‍🏫</div>
+                                        <div class="role-name">Teacher</div>
+                                    </div>
+                                    <div class="role">
+                                        <div class="role-icon">👨‍✈️</div>
+                                        <div class="role-name">Driver</div>
+                                    </div>
+                                    <div class="role">
+                                        <div class="role-icon">👨‍👩‍👧‍👦</div>
+                                        <div class="role-name">Parent</div>
+                                    </div>
+                                </div>
+                                <div class="permissions-list">
+                                    <div class="permission">
+                                        <input type="checkbox" id="view-reports" checked>
+                                        <label for="view-reports">View Reports</label>
+                                    </div>
+                                    <div class="permission">
+                                        <input type="checkbox" id="manage-users" checked>
+                                        <label for="manage-users">Manage Users</label>
+                                    </div>
+                                    <div class="permission">
+                                        <input type="checkbox" id="configure-system" checked>
+                                        <label for="configure-system">Configure System</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">3. Control Access & Subscriptions</h3>
+                            <p class="step-description">
+                                Define user roles, set permissions, and manage subscriptions or service tiers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="step-item">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Reports & Analytics</div>
+                                <div class="report-filters">
+                                    <div class="filter active">Daily</div>
+                                    <div class="filter">Weekly</div>
+                                    <div class="filter">Monthly</div>
+                                    <div class="filter">Custom</div>
+                                </div>
+                                <div class="report-chart">
+                                    <div class="chart-bars">
+                                        <div class="bar" style="height: 30%;"></div>
+                                        <div class="bar" style="height: 70%;"></div>
+                                        <div class="bar" style="height: 90%;"></div>
+                                        <div class="bar" style="height: 60%;"></div>
+                                        <div class="bar" style="height: 40%;"></div>
+                                    </div>
+                                    <div class="chart-labels">
+                                        <span>Mon</span>
+                                        <span>Tue</span>
+                                        <span>Wed</span>
+                                        <span>Thu</span>
+                                        <span>Fri</span>
+                                    </div>
+                                </div>
+                                <div class="report-actions">
+                                    <button class="export-btn">Export PDF</button>
+                                    <button class="export-btn primary">Export Excel</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">4. Generate Reports & Insights</h3>
+                            <p class="step-description">
+                                Access detailed reports for audit, safety, and performance tracking.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Drivers Content -->
+            <div class="steps-container" id="drivers-steps">
+                <!-- Step 01 -->
+                <div class="step-item">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Driver Dashboard</div>
+                                <div class="driver-welcome">
+                                    <div class="driver-greeting">Good morning, John!</div>
+                                    <div class="route-info">
+                                        <div class="route-name">Route #12</div>
+                                        <div class="route-stats">
+                                            <span class="stat">15 Stops</span>
+                                            <span class="stat">45 Students</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="start-route-btn">Start Route</div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">1. Login & Route Assignment</h3>
+                            <p class="step-description">
+                                Login to your dashboard and view your assigned route, students, and pick-up points.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="step-item">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Trip Management</div>
+                                <div class="navigation-view">
+                                    <div class="next-stop">
+                                        <div class="stop-header">Next Stop</div>
+                                        <div class="stop-name">Main Street & 5th Ave</div>
+                                        <div class="stop-distance">0.8 miles away</div>
+                                    </div>
+                                    <div class="student-count">
+                                        <span class="count">12/45</span>
+                                        <span class="count-label">Students Onboard</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">2. Trip Execution</h3>
+                            <p class="step-description">
+                                Start trip, scan/check-in students using RFID or device, and update trip progress.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="step-item">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Alerts & Updates</div>
+                                <div class="alert-list">
+                                    <div class="alert-item">
+                                        <div class="alert-icon">⚠️</div>
+                                        <div class="alert-text">Traffic delay on Main St (5 min)</div>
+                                    </div>
+                                    <div class="alert-item">
+                                        <div class="alert-icon">🚧</div>
+                                        <div class="alert-text">Construction on 5th Ave - Detour</div>
+                                    </div>
+                                    <div class="alert-item">
+                                        <div class="alert-icon">📱</div>
+                                        <div class="alert-text">Parent message: Early pickup for Sarah</div>
+                                    </div>
+                                </div>
+                                <div class="send-update-btn">Send Update</div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">3. Live Updates</h3>
+                            <p class="step-description">
+                                Send emergency alerts, traffic notices, or report issues in real-time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="step-item">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <div class="step-visual">
+                            <div class="mobile-card">
+                                <div class="card-header">Trip Summary</div>
+                                <div class="trip-stats">
+                                    <div class="stat-item">
+                                        <div class="stat-value">2.5</div>
+                                        <div class="stat-label">Hours</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">45/45</div>
+                                        <div class="stat-label">Students</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-value">0</div>
+                                        <div class="stat-label">Issues</div>
+                                    </div>
+                                </div>
+                                <div class="incident-report">
+                                    <div class="report-title">Incident Report</div>
+                                    <textarea class="report-input" placeholder="Report any issues or incidents..."></textarea>
+                                </div>
+                                <div class="end-route-btn">End Route & Submit</div>
+                            </div>
+                        </div>
+                        <div class="step-text">
+                            <h3 class="step-title">4. End Trip & Summary</h3>
+                            <p class="step-description">
+                                End the route, confirm drop-offs, and submit trip summary.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -461,6 +991,12 @@
         <div class="bg-shape bg-shape-3"></div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/tabs.js"></script>
+</body>
+</html>
+        });
+    </script>
 </body>
 </html>
