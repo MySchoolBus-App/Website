@@ -1997,49 +1997,191 @@ html {
 }
 
 @media (max-width: 600px) {
-    .team-grid {
+    /* HERO SECTION */
+    .main-content {
+        padding-top: 70px;
+    }
+    .hero-section {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+        padding: 0 0.5rem;
+        text-align: center;
     }
-    .team-title {
-        font-size: 2rem;
+    .hero-title {
+        font-size: 1.3rem;
     }
-    .team-photo {
-        width: 70px;
-        height: 70px;
+    .hero-subtitle {
+        font-size: 1.05rem;
     }
-} 
+    .hero-description {
+        font-size: 0.95rem;
+    }
+    .content-card {
+        padding: 1.2rem 0.7rem;
+        border-radius: 12px;
+    }
+    .school-bus-container {
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+        margin: 0 auto;
+    }
+    .bus-image {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
 
-@media (max-width: 480px) {
-    .team-section {
-        padding: 3rem 0 2rem 0;
-    }
-    .team-title {
-        font-size: 1.5rem;
-    }
-    .team-subtitle {
-        font-size: 0.98rem;
-        margin-bottom: 2rem;
-    }
-    .team-grid {
+    /* STATS SECTION */
+    .stats-container {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 0.7rem;
+        padding: 0 0.5rem;
     }
-    .team-member {
-        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    .stat-item {
+        padding: 0.7rem 0.2rem;
     }
-    .team-photo {
-        width: 56px;
-        height: 56px;
-        margin-bottom: 0.7rem;
+    .stat-number {
+        font-size: 1.3rem;
     }
-    .member-name {
-        font-size: 1rem;
+    .stat-label {
+        font-size: 0.9rem;
     }
-    .member-role {
+
+    /* FEATURES SECTION */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin-top: 1rem;
+    }
+    .feature-item {
+        padding: 1.2rem 0.5rem;
+    }
+    .feature-title {
+        font-size: 1.05rem;
+    }
+    .feature-description {
         font-size: 0.92rem;
     }
-    .member-desc {
-        font-size: 0.9rem;
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+    }
+    .feature-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* HOW IT WORKS SECTION */
+    .steps-container {
+        gap: 1.2rem;
+    }
+    .step-item {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .step-content {
+        flex-direction: column !important;
+        gap: 1rem;
+    }
+    .step-number {
+        position: static;
+        transform: none;
+        font-size: 2.2rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        opacity: 0.7;
+    }
+    .step-visual {
+        flex: none;
+        width: 100%;
+        max-width: 180px;
+        margin: 0 auto;
+    }
+    .mobile-card {
+        padding: 1rem;
+        min-height: 120px;
+        border-radius: 10px;
+    }
+    .card-header {
+        font-size: 1rem;
+        margin-bottom: 0.7rem;
+    }
+    .emoji {
+        font-size: 2rem;
+    }
+    .step-title {
+        font-size: 1.05rem;
+        margin-bottom: 0.5rem;
+    }
+    .step-description, .step-list li {
+        font-size: 0.92rem;
+    }
+
+    /* PRICING SECTION */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin-top: 1rem;
+    }
+    .pricing-card {
+        padding: 1.2rem 0.7rem;
+        border-radius: 12px;
+    }
+    .plan-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    .plan-features li {
+        font-size: 0.92rem;
+        padding: 0.5rem 0;
+    }
+    .plan-price {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    .plan-button {
+        font-size: 0.95rem;
+        padding: 0.7rem 1rem;
+    }
+    .featured-badge {
+        font-size: 0.7rem;
+        top: -6px;
+        right: 10px;
+        padding: 0.3rem 0.7rem;
+    }
+
+    /* FOOTER SECTION */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        padding: 0 0.5rem;
+    }
+    .footer-brand {
+        font-size: 1.1rem;
+    }
+    .footer-heading {
+        font-size: 1rem;
+    }
+    .footer-link, .help-center-link, .app-label, .app-name {
+        font-size: 0.92rem;
+    }
+    .app-button {
+        max-width: 140px;
+        padding: 0.5rem 0.7rem;
+    }
+    .copyright-bar {
+        padding: 0.7rem 0;
+    }
+    .copyright-text {
+        font-size: 0.8rem;
+    }
+    .social-icon {
+        width: 32px;
+        height: 32px;
+    }
+    .social-icon svg {
+        width: 16px;
+        height: 16px;
     }
 } 
