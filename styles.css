@@ -2009,3 +2009,37 @@ html {
         height: 70px;
     }
 } 
+
+@media (max-width: 480px) {
+    .team-section {
+        padding: 3rem 0 2rem 0;
+    }
+    .team-title {
+        font-size: 1.5rem;
+    }
+    .team-subtitle {
+        font-size: 0.98rem;
+        margin-bottom: 2rem;
+    }
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .team-member {
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    }
+    .team-photo {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 0.7rem;
+    }
+    .member-name {
+        font-size: 1rem;
+    }
+    .member-role {
+        font-size: 0.92rem;
+    }
+    .member-desc {
+        font-size: 0.9rem;
+    }
+} 
