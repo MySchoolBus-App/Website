@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pable Technology Solutions</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .logo-pable { width: 54px; height: 54px; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(3,149,211,0.08); display: flex; align-items: center; justify-content: center; }
+    .hero-bg { background: linear-gradient(120deg, #e3f2fd 0%, #f3e5f5 100%); position: relative; overflow: hidden; }
+    .hero-anim { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+    .section { max-width: 1200px; margin: 0 auto; padding: 64px 20px; }
+    .section-title { font-size: 2.2rem; font-weight: 700; color: #0395D3; margin-bottom: 18px; }
+    .highlight-grid, .solutions-grid, .metrics-grid, .team-grid, .audience-grid, .posts-grid { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 32px; }
+    .card, .metric, .team-member, .audience-card, .post { background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(3,149,211,0.07); padding: 28px; }
+    .card h3, .metric h3, .team-member h4, .audience-card h3, .post h2 { color: #0395D3; margin-bottom: 10px; }
+    .cta-btn { background: #0395D3; color: #fff; border: none; border-radius: 8px; padding: 14px 32px; font-size: 1.1rem; font-weight: 600; cursor: pointer; box-shadow: 0 2px 8px rgba(3,149,211,0.12); transition: background 0.2s; }
+    .cta-btn:hover { background: #0277b6; }
+    .nav-simple { background: rgba(255,255,255,0.97); box-shadow: 0 2px 12px rgba(3,149,211,0.07); position: sticky; top: 0; z-index: 100; }
+    .nav-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 1.5rem; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: #333; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s; }
+    .nav-links a:hover { color: #0395D3; }
+    .footer { background: #f3e5f5; color: #333; text-align: center; padding: 32px 10px; margin-top: 64px; font-size: 1rem; }
+    .contact-form { display: flex; flex-direction: column; gap: 18px; max-width: 420px; margin: 0 auto; }
+    .contact-form input, .contact-form textarea { padding: 10px; border-radius: 6px; border: 1px solid #b3e5fc; font-size: 1rem; }
+    .contact-form button { margin-top: 10px; }
+    @media (max-width: 800px) { .section { padding: 44px 8px; } .nav-content { flex-direction: column; gap: 10px; } }
+    .fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s cubic-bezier(.4,0,.2,1) forwards; }
+    .fade-in.delay-1 { animation-delay: .2s; }
+    .fade-in.delay-2 { animation-delay: .4s; }
+    .fade-in.delay-3 { animation-delay: .6s; }
+    .fade-in.delay-4 { animation-delay: .8s; }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: none; }
+    }
+    .card, .metric, .team-member, .audience-card, .post {
+      transition: box-shadow .3s, transform .3s;
+    }
+    .card:hover, .metric:hover, .team-member:hover, .audience-card:hover, .post:hover {
+      box-shadow: 0 6px 24px rgba(3,149,211,0.13);
+      transform: translateY(-4px) scale(1.02);
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-simple">
+    <div class="nav-content">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span class="logo-pable"><img src="pable.png" alt="Pable logo" style="width:38px;height:38px;"></span>
+        <span style="font-weight:700;font-size:1.3rem;color:#0395D3">PableTech</span>
+      </div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#impact">Impact</a>
+        <a href="#contact" class="cta-btn" style="margin-left:18px;">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+  <section id="home" class="section hero-bg fade-in">
+    <div style="position:relative;z-index:1;" class="fade-in delay-1">
+      <h1 style="font-size:2.7rem;font-weight:800;color:#0395D3;margin-bottom:18px;">Building Smarter Solutions for Education, Transportation & Beyond.</h1>
+      <p style="font-size:1.2rem;color:#333;max-width:600px;margin-bottom:32px;">Modern, Africa-first technology for safer schools, smarter mobility, and connected communities.</p>
+      <button class="cta-btn" onclick="document.getElementById('solutions').scrollIntoView({behavior:'smooth'})">Explore Our Solutions</button>
+    </div>
+    <div class="hero-anim fade-in delay-2">
+      <!-- Subtle SVG motion graphics -->
+      <!-- <svg width="100%" height="180" viewBox="0 0 1200 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;left:0;z-index:0;">
+        <ellipse cx="600" cy="90" rx="580" ry="60" fill="#e3f2fd"/>
+        <ellipse cx="900" cy="140" rx="180" ry="30" fill="#b3e5fc"/>
+        <ellipse cx="300" cy="140" rx="180" ry="30" fill="#f3e5f5"/>
+      </svg> -->
+    </div>
+    <div class="highlight-grid fade-in delay-3">
+      <div class="card fade-in delay-1"><h3>EdTech</h3><p>MySchoolBus, school tools, parent engagement</p></div>
+      <div class="card fade-in delay-2"><h3>Transportation</h3><p>Safe mobility, live tracking, attendance</p></div>
+      <div class="card fade-in delay-3"><h3>Future Solutions</h3><p>AI, IoT, smart systems</p></div>
+    </div>
+  </section>
+  <section id="about" class="section fade-in delay-1" style="text-align:center;">
+    <div class="section-title">About Us</div>
+    <div style="max-width:700px;margin:0 auto;">
+      <p>Pable Tech exists to solve real problems in African education and mobility. We build practical, innovative solutions for schools, parents, and organizations.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin:24px 0;justify-items:center;">
+        <div class="fade-in delay-1">
+          <svg width="38" height="38" fill="none" viewBox="0 0 38 38"><circle cx="19" cy="19" r="19" fill="#0395D3"/><path d="M19 10v18M10 19h18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+          <div style="font-weight:600;color:#0395D3;margin-top:8px;">Mission</div>
+          <div style="font-size:0.98rem;color:#333">Africa-first technology for safer, smarter learning and transport.</div>
+        </div>
+        <div class="fade-in delay-2">
+          <svg width="38" height="38" fill="none" viewBox="0 0 38 38"><rect width="38" height="38" rx="19" fill="#43b673"/><path d="M19 10l7 18H12l7-18z" fill="#fff"/></svg>
+          <div style="font-weight:600;color:#43b673;margin-top:8px;">Vision</div>
+          <div style="font-size:0.98rem;color:#333">Connected, empowered communities through local innovation.</div>
+        </div>
+        <div class="fade-in delay-3">
+          <svg width="38" height="38" fill="none" viewBox="0 0 38 38"><rect width="38" height="38" rx="19" fill="#f3e5f5"/><path d="M19 10a9 9 0 100 18 9 9 0 000-18zm0 4a5 5 0 110 10 5 5 0 010-10z" fill="#0395D3"/></svg>
+          <div style="font-weight:600;color:#0395D3;margin-top:8px;">Values</div>
+          <div style="font-size:0.98rem;color:#333">Trust, Safety, Growth, Simplicity.</div>
+        </div>
+      </div>
+    </div>
+    <div class="team-grid fade-in delay-2" style="justify-content:center;">
+      <div class="team-member fade-in delay-1"><img src="team/promise.jpg" alt="Tobi" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h4>Tobi</h4><p>Co-founder & CEO</p></div>
+      <div class="team-member fade-in delay-2"><img src="team/peace.jpg" alt="Peace" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h4>Peace</h4><p>Frontend Developer</p></div>
+      <div class="team-member fade-in delay-3"><img src="team/dara.jpg" alt="Promise" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h4>Promise</h4><p>CTO</p></div>
+    </div>
+  </section>
+  <section id="solutions" class="section fade-in delay-2">
+    <div class="section-title">Our Solutions</div>
+    <div class="solutions-grid">
+      <div class="card fade-in delay-1"><h3>MySchoolBus</h3><p>Student transport & attendance management. <br><a href="index.html" style="color:#0395D3;text-decoration:underline;">Visit MySchoolBus</a></p></div>
+      <div class="card fade-in delay-2"><h3>Future Learning Tools</h3><p>AI tutors, parent-teacher engagement, digital classrooms.</p></div>
+      <div class="card fade-in delay-3"><h3>Smart Mobility</h3><p>Live tracking, safety alerts, fleet management.</p></div>
+      <div class="card fade-in delay-4"><h3>Other Innovations</h3><p>IoT, digital payments, AI tools (coming soon).</p></div>
+    </div>
+  </section>
+  <section id="audience" class="section fade-in delay-3">
+    <div class="section-title">Who We Help</div>
+    <div class="audience-grid">
+      <div class="audience-card fade-in delay-1"><h3>For Schools</h3><p>Reduce admin time, improve safety, and connect with parents.</p></div>
+      <div class="audience-card fade-in delay-2"><h3>For Parents</h3><p>Track your child’s commute, get instant alerts, and stay informed.</p></div>
+      <div class="audience-card fade-in delay-3"><h3>For Organizations</h3><p>Custom solutions for fleets, education groups, and NGOs.</p></div>
+    </div>
+  </section>
+  <section id="impact" class="section fade-in delay-4">
+    <div class="section-title">Impact</div>
+    <div class="metrics-grid">
+      <div class="metric fade-in delay-1"><h3>+120%</h3><p>Attendance improvements</p></div>
+      <div class="metric fade-in delay-2"><h3>80%</h3><p>Time saved for staff</p></div>
+      <div class="metric fade-in delay-3"><h3>95%</h3><p>Happy parents</p></div>
+    </div>
+    <div style="margin:32px 0;" class="fade-in delay-2">
+      <strong>Testimonials:</strong>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;justify-items:center;margin-top:18px;">
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:24px;max-width:340px;text-align:left;" class="fade-in delay-1">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px;">
+            <img src="team/dara.jpg" alt="School Admin" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">
+            <div>
+              <div style="font-weight:600;color:#0395D3;">Dara</div>
+              <div style="font-size:0.95rem;color:#43b673;">School Admin</div>
+            </div>
+          </div>
+          <div style="font-size:1.05rem;color:#333;">“Pable made our school transport safe and easy.”</div>
+        </div>
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:24px;max-width:340px;text-align:left;" class="fade-in delay-2">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px;">
+            <img src="team/peace.jpg" alt="Parent" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">
+            <div>
+              <div style="font-weight:600;color:#0395D3;">Peace</div>
+              <div style="font-size:0.95rem;color:#43b673;">Parent</div>
+            </div>
+          </div>
+          <div style="font-size:1.05rem;color:#333;">“I get real-time updates about my child.”</div>
+        </div>
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:24px;max-width:340px;text-align:left;" class="fade-in delay-3">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px;">
+            <img src="team/promise.jpg" alt="Teacher" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">
+            <div>
+              <div style="font-weight:600;color:#0395D3;">Promise</div>
+              <div style="font-size:0.95rem;color:#43b673;">Teacher</div>
+            </div>
+          </div>
+          <div style="font-size:1.05rem;color:#333;">“Setup was simple and support is great.”</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:24px;" class="fade-in delay-3">
+      <strong>CSR & Social Innovation:</strong> <br>Supporting local schools and communities with free tools and training.
+    </div>
+  </section>
+  <section id="blog" class="section">
+    <div class="section-title">Blog & Insights</div>
+    <div class="posts-grid">
+      <div class="post"><h2>Launching Pable</h2><p>We started with one idea: make school logistics smarter.</p></div>
+      <div class="post"><h2>Product Design Principles</h2><p>Design for trust, safety, and simplicity.</p></div>
+      <div class="post"><h2>Transport Innovation in Africa</h2><p>How technology is changing school commutes.</p></div>
+    </div>
+  </section>
+  <section id="careers" class="section">
+    <div class="section-title">Careers / Join Us</div>
+    <p>We're building a small, nimble team. Send your CV to <a href="mailto:hello@pable.tech" style="color:#0395D3;">hello@pable.tech</a></p>
+    <div class="card" style="margin-top:18px;">
+      <strong>Open Roles:</strong>
+      <ul style="margin-top:10px;">
+        <li>Frontend Developer (Internship)</li>
+        <li>Product Designer</li>
+        <li>Community Manager</li>
+      </ul>
+      <div style="margin-top:10px;">Culture: Innovation, growth, and impact.</div>
+    </div>
+  </section>
+  <section id="contact" class="section">
+    <div class="section-title">Contact</div>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message" required></textarea>
+      <button class="cta-btn" type="submit">Send Message</button>
+    </form>
+    <div style="margin-top:32px;text-align:center;">
+      <strong>Office:</strong> 123 Technology Drive, Abuja, Nigeria<br>
+      <strong>Email:</strong> <a href="mailto:hello@pable.tech" style="color:#0395D3;">hello@pable.tech</a><br>
+      <strong>Social:</strong>
+      <a href="#" style="color:#0395D3;margin:0 8px;">Twitter</a>
+      <a href="#" style="color:#0395D3;margin:0 8px;">LinkedIn</a>
+      <a href="#" style="color:#0395D3;margin:0 8px;">Instagram</a>
+    </div>
+  </section>
+  <footer class="footer">
+    &copy; 2025 Pable Technology Solutions. All rights reserved.
+  </footer>
+</body>
+</html>
