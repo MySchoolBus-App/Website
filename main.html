@@ -42,6 +42,41 @@
       box-shadow: 0 6px 24px rgba(3,149,211,0.13);
       transform: translateY(-4px) scale(1.02);
     }
+    .blog-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(3,149,211,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+      overflow: hidden;
+      position: relative;
+    }
+    .blog-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 32px rgba(3,149,211,0.16);
+    }
+    .blog-tag {
+      display: inline-block;
+      background: #0395D3;
+      color: #fff;
+      font-size: 12px;
+      border-radius: 8px;
+      padding: 2px 10px;
+      margin-right: 6px;
+    }
+    .blog-filter {
+      background: #f3e5f5;
+      color: #0395D3;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .blog-filter.active, .blog-filter:hover {
+      background: #0395D3;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -55,8 +90,8 @@
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#solutions">Solutions</a>
-        <a href="#impact">Impact</a>
-        <a href="#contact" class="cta-btn" style="margin-left:18px;">Contact Us</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
@@ -66,13 +101,7 @@
       <p style="font-size:1.2rem;color:#333;max-width:600px;margin-bottom:32px;">Modern, Africa-first technology for safer schools, smarter mobility, and connected communities.</p>
       <button class="cta-btn" onclick="document.getElementById('solutions').scrollIntoView({behavior:'smooth'})">Explore Our Solutions</button>
     </div>
-    <div class="hero-anim fade-in delay-2">
-      <!-- Subtle SVG motion graphics -->
-      <!-- <svg width="100%" height="180" viewBox="0 0 1200 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;left:0;z-index:0;">
-        <ellipse cx="600" cy="90" rx="580" ry="60" fill="#e3f2fd"/>
-        <ellipse cx="900" cy="140" rx="180" ry="30" fill="#b3e5fc"/>
-        <ellipse cx="300" cy="140" rx="180" ry="30" fill="#f3e5f5"/>
-      </svg> -->
+    <div class="hero-anim fade-in delay-2"></div>
     </div>
     <div class="highlight-grid fade-in delay-3">
       <div class="card fade-in delay-1"><h3>EdTech</h3><p>MySchoolBus, school tools, parent engagement</p></div>
@@ -103,9 +132,9 @@
       </div>
     </div>
     <div class="team-grid fade-in delay-2" style="justify-content:center;">
-      <div class="team-member fade-in delay-1"><img src="team/promise.jpg" alt="Tobi" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h4>Tobi</h4><p>Co-founder & CEO</p></div>
-      <div class="team-member fade-in delay-2"><img src="team/peace.jpg" alt="Peace" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h4>Peace</h4><p>Frontend Developer</p></div>
-      <div class="team-member fade-in delay-3"><img src="team/dara.jpg" alt="Promise" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h4>Promise</h4><p>CTO</p></div>
+      <div class="team-member fade-in delay-1"><img src="team/promise.jpg" alt="Tobi" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h4>Okoli Promise</h4><p>Co-founder & CEO</p></div>
+      <div class="team-member fade-in delay-2"><img src="team/peace.jpg" alt="Peace" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h4>Oloruntoba Peace</h4><p>Frontend Developer</p></div>
+      <div class="team-member fade-in delay-3"><img src="team/dara.jpg" alt="Promise" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h4>Blessing</h4><p>CTO</p></div>
     </div>
   </section>
   <section id="solutions" class="section fade-in delay-2">
@@ -128,71 +157,147 @@
   <section id="impact" class="section fade-in delay-4">
     <div class="section-title">Impact</div>
     <div class="metrics-grid">
-      <div class="metric fade-in delay-1"><h3>+120%</h3><p>Attendance improvements</p></div>
-      <div class="metric fade-in delay-2"><h3>80%</h3><p>Time saved for staff</p></div>
-      <div class="metric fade-in delay-3"><h3>95%</h3><p>Happy parents</p></div>
+      <div class="metric fade-in delay-1">
+        <div style="margin-bottom:10px;"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#0395D3"/><path d="M10 18l4 4 8-8" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 id="impact-attendance">0%</h3><p>Attendance improvements</p>
+      </div>
+      <div class="metric fade-in delay-2">
+        <div style="margin-bottom:10px;"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#43b673"/><path d="M16 8v8l6 4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 id="impact-time">0%</h3><p>Time saved for staff</p>
+      </div>
+      <div class="metric fade-in delay-3">
+        <div style="margin-bottom:10px;"><svg width="32" height="32" fill="none" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#f3e5f5"/><path d="M16 12a4 4 0 100 8 4 4 0 000-8zm0 10c-4.418 0-8-2.239-8-5v-1a1 1 0 011-1h14a1 1 0 011 1v1c0 2.761-3.582 5-8 5z" fill="#0395D3"/></svg></div>
+        <h3 id="impact-parents">0%</h3><p>Happy parents</p>
+      </div>
     </div>
+    <script>
+      function animateCount(id, target, duration) {
+        const el = document.getElementById(id);
+        let start = 0;
+        const step = Math.ceil(target / (duration / 16));
+        function update() {
+          start += step;
+          if (start >= target) {
+            el.textContent = target + '%';
+          } else {
+            el.textContent = start + '%';
+            requestAnimationFrame(update);
+          }
+        }
+        update();
+      }
+      window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          animateCount('impact-attendance', 120, 1200);
+          animateCount('impact-time', 80, 1200);
+          animateCount('impact-parents', 95, 1200);
+        }, 400);
+      });
+    </script>
     <div style="margin:32px 0;" class="fade-in delay-2">
       <strong>Testimonials:</strong>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;justify-items:center;margin-top:18px;">
-        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:24px;max-width:340px;text-align:left;" class="fade-in delay-1">
-          <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px;">
-            <img src="team/dara.jpg" alt="School Admin" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">
-            <div>
-              <div style="font-weight:600;color:#0395D3;">Dara</div>
-              <div style="font-size:0.95rem;color:#43b673;">School Admin</div>
-            </div>
+      <div id="testimonial-slider" style="max-width:400px;margin:32px auto;position:relative;">
+        <div class="testimonial-slide" style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:28px;text-align:left;display:flex;align-items:center;gap:18px;">
+          <img src="team/dara.jpg" alt="School Admin" style="width:54px;height:54px;border-radius:50%;object-fit:cover;">
+          <div>
+            <div style="font-weight:600;color:#0395D3;">Dara</div>
+            <div style="font-size:0.95rem;color:#43b673;">School Admin</div>
+            <div style="font-size:1.05rem;color:#333;margin-top:8px;">“Pable made our school transport safe and easy.”</div>
           </div>
-          <div style="font-size:1.05rem;color:#333;">“Pable made our school transport safe and easy.”</div>
         </div>
-        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:24px;max-width:340px;text-align:left;" class="fade-in delay-2">
-          <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px;">
-            <img src="team/peace.jpg" alt="Parent" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">
-            <div>
-              <div style="font-weight:600;color:#0395D3;">Peace</div>
-              <div style="font-size:0.95rem;color:#43b673;">Parent</div>
-            </div>
+        <div class="testimonial-slide" style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:28px;text-align:left;display:none;align-items:center;gap:18px;">
+          <img src="team/peace.jpg" alt="Parent" style="width:54px;height:54px;border-radius:50%;object-fit:cover;">
+          <div>
+            <div style="font-weight:600;color:#0395D3;">Peace</div>
+            <div style="font-size:0.95rem;color:#43b673;">Parent</div>
+            <div style="font-size:1.05rem;color:#333;margin-top:8px;">“I get real-time updates about my child.”</div>
           </div>
-          <div style="font-size:1.05rem;color:#333;">“I get real-time updates about my child.”</div>
         </div>
-        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:24px;max-width:340px;text-align:left;" class="fade-in delay-3">
-          <div style="display:flex;align-items:center;gap:14px;margin-bottom:10px;">
-            <img src="team/promise.jpg" alt="Teacher" style="width:48px;height:48px;border-radius:50%;object-fit:cover;">
-            <div>
-              <div style="font-weight:600;color:#0395D3;">Promise</div>
-              <div style="font-size:0.95rem;color:#43b673;">Teacher</div>
-            </div>
+        <div class="testimonial-slide" style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:28px;text-align:left;display:none;align-items:center;gap:18px;">
+          <img src="team/promise.jpg" alt="Teacher" style="width:54px;height:54px;border-radius:50%;object-fit:cover;">
+          <div>
+            <div style="font-weight:600;color:#0395D3;">Promise</div>
+            <div style="font-size:0.95rem;color:#43b673;">Teacher</div>
+            <div style="font-size:1.05rem;color:#333;margin-top:8px;">“Setup was simple and support is great.”</div>
           </div>
-          <div style="font-size:1.05rem;color:#333;">“Setup was simple and support is great.”</div>
         </div>
+        <button id="testimonial-prev" style="position:absolute;left:-38px;top:50%;transform:translateY(-50%);background:#0395D3;color:#fff;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:1.2rem;">&#8592;</button>
+        <button id="testimonial-next" style="position:absolute;right:-38px;top:50%;transform:translateY(-50%);background:#0395D3;color:#fff;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:1.2rem;">&#8594;</button>
       </div>
+      <script>
+        const slides = document.querySelectorAll('#testimonial-slider .testimonial-slide');
+        let current = 0;
+        function showSlide(idx) {
+          slides.forEach((slide,i) => {
+            slide.style.display = i === idx ? 'flex' : 'none';
+          });
+        }
+        document.getElementById('testimonial-prev').onclick = function() {
+          current = (current - 1 + slides.length) % slides.length;
+          showSlide(current);
+        };
+        document.getElementById('testimonial-next').onclick = function() {
+          current = (current + 1) % slides.length;
+          showSlide(current);
+        };
+        showSlide(current);
+      </script>
     </div>
     <div style="margin-top:24px;" class="fade-in delay-3">
       <strong>CSR & Social Innovation:</strong> <br>Supporting local schools and communities with free tools and training.
     </div>
   </section>
-  <section id="blog" class="section">
-    <div class="section-title">Blog & Insights</div>
-    <div class="posts-grid">
-      <div class="post"><h2>Launching Pable</h2><p>We started with one idea: make school logistics smarter.</p></div>
-      <div class="post"><h2>Product Design Principles</h2><p>Design for trust, safety, and simplicity.</p></div>
-      <div class="post"><h2>Transport Innovation in Africa</h2><p>How technology is changing school commutes.</p></div>
+  <section id="blog" class="fade-in" style="max-width:1250px; margin:0 auto; padding-left:100px; padding-right:100px;">
+    <h2>Latest Insights</h2>
+    <div class="blog-filters" style="display:flex; gap:12px; justify-content:center; margin-bottom:24px;">
+      <button class="blog-filter active">All</button>
+      <button class="blog-filter">Tech</button>
+      <button class="blog-filter">Education</button>
+      <button class="blog-filter">Updates</button>
+    </div>
+    <div class="blog-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:32px;">
+      <div class="blog-card">
+        <div class="blog-img" style="height:180px; background:#0395D3 url('public/image1.png') center/cover; border-radius:16px 16px 0 0;"></div>
+        <div class="blog-content" style="padding:20px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <img src="team/dara.jpg" alt="Author" style="width:32px; height:32px; border-radius:50%;">
+            <span style="font-size:12px; color:#0395D3;">Dara</span>
+            <span style="font-size:10px; color:#888; margin-left:auto;">Aug 2025</span>
+          </div>
+          <h3 style="margin:0 0 1px 0;">How Tech Is Transforming School Transport</h3>
+          <div style="margin-bottom:8px;"><span class="blog-tag">Tech</span> <span class="blog-tag">Education</span></div>
+          <p style="font-size:15px; color:#444;">Discover how smart solutions are making school commutes safer and more efficient for students and staff.</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img" style="height:180px; background:#43b673 url('public/image1.png') center/cover; border-radius:16px 16px 0 0;"></div>
+        <div class="blog-content" style="padding:20px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <img src="team/peace.jpg" alt="Author" style="width:32px; height:32px; border-radius:50%;">
+            <span style="font-size:14px; color:#43b673;">Peace</span>
+            <span style="font-size:12px; color:#888; margin-left:auto;">Jul 2025</span>
+          </div>
+          <h3 style="margin:0 0 6px 0;">Parent Engagement: The Next Frontier</h3>
+          <div style="margin-bottom:8px;"><span class="blog-tag">Education</span> <span class="blog-tag">Updates</span></div>
+          <p style="font-size:15px; color:#444;">Explore new ways technology is helping parents stay informed and involved in their children's school journeys.</p>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-img" style="height:180px; background:#f3e5f5 url('public/image1.png') center/cover; border-radius:16px 16px 0 0;"></div>
+        <div class="blog-content" style="padding:20px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <img src="team/promise.jpg" alt="Author" style="width:32px; height:32px; border-radius:50%;">
+            <span style="font-size:14px; color:#a259c6;">Promise</span>
+            <span style="font-size:12px; color:#888; margin-left:auto;">Jun 2025</span>
+          </div>
+          <h3 style="margin:0 0 8px 0;">Safer Routes, Smarter Schools</h3>
+          <div style="margin-bottom:8px;"><span class="blog-tag">Tech</span></div>
+          <p style="font-size:15px; color:#444;">A look at how data-driven planning is improving safety and efficiency for school transportation systems.</p>
+        </div>
+      </div>
     </div>
   </section>
-  <section id="careers" class="section">
-    <div class="section-title">Careers / Join Us</div>
-    <p>We're building a small, nimble team. Send your CV to <a href="mailto:hello@pable.tech" style="color:#0395D3;">hello@pable.tech</a></p>
-    <div class="card" style="margin-top:18px;">
-      <strong>Open Roles:</strong>
-      <ul style="margin-top:10px;">
-        <li>Frontend Developer (Internship)</li>
-        <li>Product Designer</li>
-        <li>Community Manager</li>
-      </ul>
-      <div style="margin-top:10px;">Culture: Innovation, growth, and impact.</div>
-    </div>
-  </section>
-  <section id="contact" class="section">
+  <section id="contact" class="section fade-in">
     <div class="section-title">Contact</div>
     <form class="contact-form">
       <input type="text" placeholder="Your Name" required>
@@ -204,9 +309,15 @@
       <strong>Office:</strong> 123 Technology Drive, Abuja, Nigeria<br>
       <strong>Email:</strong> <a href="mailto:hello@pable.tech" style="color:#0395D3;">hello@pable.tech</a><br>
       <strong>Social:</strong>
-      <a href="#" style="color:#0395D3;margin:0 8px;">Twitter</a>
-      <a href="#" style="color:#0395D3;margin:0 8px;">LinkedIn</a>
-      <a href="#" style="color:#0395D3;margin:0 8px;">Instagram</a>
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook" style="color:#0395D3;margin:0 8px;">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#0395D3"/><path d="M18 12h2V9h-2c-2.21 0-4 1.79-4 4v2h-2v3h2v7h3v-7h2.5l.5-3H19v-2c0-.55.45-1 1-1z" fill="#fff"/></svg>
+      </a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter" style="color:#0395D3;margin:0 8px;">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#43b673"/><path d="M24 11.5a5.5 5.5 0 01-1.57.43A2.75 2.75 0 0023.34 10a5.5 5.5 0 01-1.74.66A2.75 2.75 0 0016 13.25c0 .22.02.43.07.64A7.8 7.8 0 0110 10.92a2.75 2.75 0 00.85 3.67A2.7 2.7 0 009.5 14v.03a2.75 2.75 0 002.2 2.7c-.41.11-.84.13-1.27.05a2.75 2.75 0 002.57 1.91A5.5 5.5 0 018 22.5a7.77 7.77 0 004.22 1.24c5.06 0 7.83-4.19 7.83-7.83 0-.12 0-.24-.01-.36A5.6 5.6 0 0024 11.5z" fill="#fff"/></svg>
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <svg width="32" height="32" viewBox="0 0 448 512" fill="none"><path fill="#E1306C" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.5 0-71.5-32-71.5-71.5s32-71.5 71.5-71.5 71.5 32 71.5 71.5-32 71.5-71.5 71.5zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9S388.6 24.6 353.3 22.9c-35.3-1.7-141.3-1.7-176.6 0-35.3 1.7-66.7 9.9-92.9 36.2S24.6 123.4 22.9 158.7c-1.7 35.3-1.7 141.3 0 176.6 1.7 35.3 9.9 66.7 36.2 92.9s57.6 34.5 92.9 36.2c35.3 1.7 141.3 1.7 176.6 0 35.3-1.7 66.7-9.9 92.9-36.2s34.5-57.6 36.2-92.9c1.7-35.3 1.7-141.3 0-176.6zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.5 11.7-99.5 9-132.3 9s-102.7 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.5-9-99.5-9-132.3s-2.6-102.7 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5 29.5-11.7 99.5-9 132.3-9s102.7-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.5 9 99.5 9 132.3s2.6 102.7-9 132.3z"/></svg>
+        </a>
     </div>
   </section>
   <footer class="footer">
