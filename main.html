@@ -196,55 +196,35 @@
     </script>
     <div style="margin:32px 0;" class="fade-in delay-2">
       <strong>Testimonials:</strong>
-      <div id="testimonial-slider" style="max-width:400px;margin:32px auto;position:relative;">
-        <div class="testimonial-slide" style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:28px;text-align:left;display:flex;align-items:center;gap:18px;">
-          <img src="team/dara.jpg" alt="School Admin" style="width:54px;height:54px;border-radius:50%;object-fit:cover;">
-          <div>
-            <div style="font-weight:600;color:#0395D3;">Dara</div>
-            <div style="font-size:0.95rem;color:#43b673;">School Admin</div>
-            <div style="font-size:1.05rem;color:#333;margin-top:8px;">“Pable made our school transport safe and easy.”</div>
+      <div class="testimonial-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;justify-content:center;align-items:stretch;">
+        <div class="testimonial-card fade-in delay-1" style="background:linear-gradient(120deg,#e3f2fd 60%,#0395D3 100%);border-radius:18px;box-shadow:0 4px 24px rgba(3,149,211,0.10);padding:32px;display:flex;flex-direction:column;align-items:center;">
+          <img src="team/dara.jpg" alt="School Admin" style="width:70px;height:70px;border-radius:50%;object-fit:cover;margin-bottom:16px;box-shadow:0 2px 12px #0395D3;">
+          <div style="font-weight:700;color:#0395D3;font-size:1.1rem;">Dara</div>
+          <div style="font-size:0.98rem;color:#43b673;margin-bottom:8px;">School Admin</div>
+          <div style="margin-bottom:10px;">
+            <span style="color:#FFD700;font-size:1.2rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           </div>
+          <div style="font-size:1.08rem;color:#333;text-align:center;">“Pable made our school transport safe and easy.”</div>
         </div>
-        <div class="testimonial-slide" style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:28px;text-align:left;display:none;align-items:center;gap:18px;">
-          <img src="team/peace.jpg" alt="Parent" style="width:54px;height:54px;border-radius:50%;object-fit:cover;">
-          <div>
-            <div style="font-weight:600;color:#0395D3;">Peace</div>
-            <div style="font-size:0.95rem;color:#43b673;">Parent</div>
-            <div style="font-size:1.05rem;color:#333;margin-top:8px;">“I get real-time updates about my child.”</div>
+        <div class="testimonial-card fade-in delay-2" style="background:linear-gradient(120deg,#f3e5f5 60%,#43b673 100%);border-radius:18px;box-shadow:0 4px 24px rgba(67,182,115,0.10);padding:32px;display:flex;flex-direction:column;align-items:center;">
+          <img src="team/peace.jpg" alt="Parent" style="width:70px;height:70px;border-radius:50%;object-fit:cover;margin-bottom:16px;box-shadow:0 2px 12px #43b673;">
+          <div style="font-weight:700;color:#43b673;font-size:1.1rem;">Peace</div>
+          <div style="font-size:0.98rem;color:#0395D3;margin-bottom:8px;">Parent</div>
+          <div style="margin-bottom:10px;">
+            <span style="color:#FFD700;font-size:1.2rem;">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
           </div>
+          <div style="font-size:1.08rem;color:#333;text-align:center;">“I get real-time updates about my child.”</div>
         </div>
-        <div class="testimonial-slide" style="background:#fff;border-radius:14px;box-shadow:0 2px 16px rgba(3,149,211,0.07);padding:28px;text-align:left;display:none;align-items:center;gap:18px;">
-          <img src="team/promise.jpg" alt="Teacher" style="width:54px;height:54px;border-radius:50%;object-fit:cover;">
-          <div>
-            <div style="font-weight:600;color:#0395D3;">Promise</div>
-            <div style="font-size:0.95rem;color:#43b673;">Teacher</div>
-            <div style="font-size:1.05rem;color:#333;margin-top:8px;">“Setup was simple and support is great.”</div>
+        <div class="testimonial-card fade-in delay-3" style="background:linear-gradient(120deg,#e3f2fd 60%,#a259c6 100%);border-radius:18px;box-shadow:0 4px 24px rgba(162,89,198,0.10);padding:32px;display:flex;flex-direction:column;align-items:center;">
+          <img src="team/promise.jpg" alt="Teacher" style="width:70px;height:70px;border-radius:50%;object-fit:cover;margin-bottom:16px;box-shadow:0 2px 12px #a259c6;">
+          <div style="font-weight:700;color:#a259c6;font-size:1.1rem;">Promise</div>
+          <div style="font-size:0.98rem;color:#0395D3;margin-bottom:8px;">Teacher</div>
+          <div style="margin-bottom:10px;">
+            <span style="color:#FFD700;font-size:1.2rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           </div>
+          <div style="font-size:1.08rem;color:#333;text-align:center;">“Setup was simple and support is great.”</div>
         </div>
-        <button id="testimonial-prev" style="position:absolute;left:-38px;top:50%;transform:translateY(-50%);background:#0395D3;color:#fff;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:1.2rem;">&#8592;</button>
-        <button id="testimonial-next" style="position:absolute;right:-38px;top:50%;transform:translateY(-50%);background:#0395D3;color:#fff;border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:1.2rem;">&#8594;</button>
       </div>
-      <script>
-        const slides = document.querySelectorAll('#testimonial-slider .testimonial-slide');
-        let current = 0;
-        function showSlide(idx) {
-          slides.forEach((slide,i) => {
-            slide.style.display = i === idx ? 'flex' : 'none';
-          });
-        }
-        document.getElementById('testimonial-prev').onclick = function() {
-          current = (current - 1 + slides.length) % slides.length;
-          showSlide(current);
-        };
-        document.getElementById('testimonial-next').onclick = function() {
-          current = (current + 1) % slides.length;
-          showSlide(current);
-        };
-        showSlide(current);
-      </script>
-    </div>
-    <div style="margin-top:24px;" class="fade-in delay-3">
-      <strong>CSR & Social Innovation:</strong> <br>Supporting local schools and communities with free tools and training.
     </div>
   </section>
   <section id="blog" class="fade-in" style="max-width:1250px; margin:0 auto; padding-left:100px; padding-right:100px;">
@@ -297,7 +277,7 @@
       </div>
     </div>
   </section>
-  <section id="contact" class="section fade-in">
+  <section id="contact" class="fade-in" style="text-align:center;">
     <div class="section-title">Contact</div>
     <form class="contact-form">
       <input type="text" placeholder="Your Name" required>
