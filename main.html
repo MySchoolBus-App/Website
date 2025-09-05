@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Base & Layout Styles */
     .logo-pable { width: 54px; height: 54px; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(3,149,211,0.08); display: flex; align-items: center; justify-content: center; }
     .hero-bg { background: linear-gradient(120deg, #e3f2fd 0%, #f3e5f5 100%); position: relative; overflow: hidden; }
     .hero-anim { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
     .section { max-width: 1200px; margin: 0 auto; padding: 64px 20px; }
     .section-title { font-size: 2.2rem; font-weight: 700; color: #0395D3; margin-bottom: 18px; }
     .highlight-grid, .solutions-grid, .metrics-grid, .team-grid, .audience-grid, .posts-grid { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 32px; }
-    .card, .metric, .team-member, .audience-card, .post { background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(3,149,211,0.07); padding: 28px; }
+    .card, .metric, .team-member, .audience-card, .post { background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(3,149,211,0.07); padding: 28px; transition: box-shadow .3s, transform .3s; }
     .card h3, .metric h3, .team-member h4, .audience-card h3, .post h2 { color: #0395D3; margin-bottom: 10px; }
     .cta-btn { background: #0395D3; color: #fff; border: none; border-radius: 8px; padding: 14px 32px; font-size: 1.1rem; font-weight: 600; cursor: pointer; box-shadow: 0 2px 8px rgba(3,149,211,0.12); transition: background 0.2s; }
     .cta-btn:hover { background: #0277b6; }
@@ -22,11 +23,6 @@
     .nav-links { display: flex; gap: 1.5rem; }
     .nav-links a { color: #333; text-decoration: none; font-weight: 500; font-size: 1rem; transition: color 0.2s; }
     .nav-links a:hover { color: #0395D3; }
-    .footer { background: #f3e5f5; color: #333; text-align: center; padding: 32px 10px; margin-top: 64px; font-size: 1rem; }
-    .contact-form { display: flex; flex-direction: column; gap: 18px; max-width: 420px; margin: 0 auto; }
-    .contact-form input, .contact-form textarea { padding: 10px; border-radius: 6px; border: 1px solid #b3e5fc; font-size: 1rem; }
-    .contact-form button { margin-top: 10px; }
-    @media (max-width: 800px) { .section { padding: 44px 8px; } .nav-content { flex-direction: column; gap: 10px; } }
     .fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s cubic-bezier(.4,0,.2,1) forwards; }
     .fade-in.delay-1 { animation-delay: .2s; }
     .fade-in.delay-2 { animation-delay: .4s; }
@@ -35,13 +31,13 @@
     @keyframes fadeInUp {
       to { opacity: 1; transform: none; }
     }
-    .card, .metric, .team-member, .audience-card, .post {
-      transition: box-shadow .3s, transform .3s;
-    }
     .card:hover, .metric:hover, .team-member:hover, .audience-card:hover, .post:hover {
       box-shadow: 0 6px 24px rgba(3,149,211,0.13);
       transform: translateY(-4px) scale(1.02);
+      z-index: 5;
     }
+
+    /* Blog Section Styles */
     .blog-card {
       background: #fff;
       border-radius: 16px;
@@ -76,6 +72,18 @@
     .blog-filter.active, .blog-filter:hover {
       background: #0395D3;
       color: #fff;
+    }
+    .blog-filters {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
     }
     /* Testimonial Slider */
     .testimonial-slider {
@@ -152,6 +160,192 @@
     .dot:hover { transform: scale(1.2); }
     .dot.active { background-color: #0395D3; transform: scale(1.2); }
   </style>
+  <style>
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      padding: 0;
+      z-index: 1001;
+    }
+    .bar {
+      display: block;
+      width: 20px;
+      height: 3px;
+      margin: 2px auto;
+      background-color: #0395D3;
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+  <style> /* Merged Styles */
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+      background: #fff;
+      padding: 48px;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(3,149,211,0.1);
+      margin-top: 32px;
+      text-align: left;
+    }
+    .contact-info {
+      color: #333;
+    }
+    .contact-info h3 {
+      font-size: 1.8rem;
+      color: #0395D3;
+      margin-bottom: 16px;
+    }
+    .contact-info p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .info-item svg {
+      width: 24px;
+      height: 24px;
+      color: #0395D3;
+      flex-shrink: 0;
+    }
+    .contact-socials {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .contact-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: #e3f2fd;
+      border-radius: 50%;
+      color: #0395D3;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .contact-socials a:hover {
+      background: #0395D3;
+      color: #fff;
+      transform: scale(1.1);
+    }
+    .contact-socials svg {
+      width: 20px;
+      height: 20px;
+    }
+    .contact-form-modern { display: flex; flex-direction: column; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group label { font-weight: 600; color: #333; margin-bottom: 8px; font-size: 1rem; }
+    .contact-form-modern input, .contact-form-modern textarea { padding: 14px 18px; border-radius: 10px; border: 1px solid #b3e5fc; font-size: 1rem; background: #f7fcff; transition: border-color 0.2s, box-shadow 0.2s; }
+    .contact-form-modern input:focus, .contact-form-modern textarea:focus { outline: none; border-color: #0395D3; box-shadow: 0 0 0 3px rgba(3,149,211,0.15); }
+    .contact-form-modern textarea { resize: vertical; min-height: 120px; }
+    .contact-form-modern .cta-btn { align-self: flex-start; }
+    .footer { background: #f3e5f5; color: #333; text-align: center; padding: 32px 10px; margin-top: 64px; font-size: 1rem; }
+    @media (max-width: 900px) { .contact-wrapper { grid-template-columns: 1fr; padding: 24px; } }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+      margin: 24px 0;
+      justify-items: center;
+    }
+
+    /* General Mobile Responsiveness */
+    @media (max-width: 800px) {
+      .section {
+        padding: 44px 16px;
+      }
+      .hamburger {
+        display: block;
+      }
+      .nav-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0.7rem 1rem;
+        gap: 0;
+      }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70vw;
+        max-width: 280px;
+        height: 100vh;
+        background: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 6rem 2rem;
+        gap: 1.5rem;
+        box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+        transition: right 0.35s ease-in-out;
+        z-index: 1000;
+        flex-wrap: nowrap;
+      }
+      .nav-links.active {
+        right: 0;
+      }
+      .nav-links a {
+        font-size: 1.2rem;
+        padding: 0.5rem 0;
+      }
+      #home h1 {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .mission-grid, .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      #blog {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .testimonial-slider {
+        max-width: 100%;
+      }
+      .testimonial-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+      .testimonial-arrow.prev { left: 8px; }
+      .testimonial-arrow.next { right: 8px; }
+      .testimonial-card {
+        padding: 32px 24px;
+      }
+      .achievement-container {
+        grid-template-columns: 1fr;
+      }
+      .achievement-text {
+        text-align: center;
+      }
+      .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="nav-simple">
@@ -167,12 +361,17 @@
         <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
       </div>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </nav>
   <section id="home" class="section hero-bg fade-in">
     <div style="position:relative;z-index:1;" class="fade-in delay-1">
       <h1 style="font-size:2.7rem;font-weight:800;color:#0395D3;margin-bottom:18px;">Building Smarter Solutions for Education, Transportation & Beyond.</h1>
-      <p style="font-size:1.2rem;color:#333;max-width:600px;margin-bottom:32px;">Modern, Africa-first technology for safer schools, smarter mobility, and connected communities.</p>
+      <p style="font-size:1.2rem;color:#333;max-width:600px;margin-bottom:32px;line-height:1.6;">Modern, Africa-first technology for safer schools, smarter mobility, and connected communities.</p>
       <button class="cta-btn" onclick="document.getElementById('solutions').scrollIntoView({behavior:'smooth'})">Explore Our Solutions</button>
     </div>
     <div class="hero-anim fade-in delay-2"></div>
@@ -186,8 +385,8 @@
   <section id="about" class="section fade-in delay-1" style="text-align:center;">
     <div class="section-title">About Us</div>
     <div style="max-width:700px;margin:0 auto;">
-      <p>Pable Tech exists to solve real problems in African education and mobility. We build practical, innovative solutions for schools, parents, and organizations.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin:24px 0;justify-items:center;">
+      <p style="line-height:1.7;">Pable Tech exists to solve real problems in African education and mobility. We build practical, innovative solutions for schools, parents, and organizations.</p>
+      <div class="mission-grid">
         <div class="fade-in delay-1">
           <svg width="38" height="38" fill="none" viewBox="0 0 38 38"><circle cx="19" cy="19" r="19" fill="#0395D3"/><path d="M19 10v18M10 19h18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
           <div style="font-weight:600;color:#0395D3;margin-top:8px;">Mission</div>
@@ -266,6 +465,22 @@
           animateCount('impact-time', 80, 1200);
           animateCount('impact-parents', 95, 1200);
         }, 400);
+
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
 
         // Testimonial Slider
         const sliderContainer = document.querySelector('.testimonial-slider');
@@ -386,15 +601,15 @@
       </div>
     </section>
   </section>
-  <section id="blog" class="fade-in" style="max-width:1250px; margin:0 auto; padding-left:100px; padding-right:100px;">
+  <section id="blog" class="section fade-in">
     <h2>Latest Insights</h2>
-    <div class="blog-filters" style="display:flex; gap:12px; justify-content:center; margin-bottom:24px;">
-      <button class="blog-filter active">All</button>
-      <button class="blog-filter">Tech</button>
-      <button class="blog-filter">Education</button>
-      <button class="blog-filter">Updates</button>
+    <div class="blog-filters">
+      <button class="blog-filter active" data-filter="all">All</button>
+      <button class="blog-filter" data-filter="tech">Tech</button>
+      <button class="blog-filter" data-filter="education">Education</button>
+      <button class="blog-filter" data-filter="updates">Updates</button>
     </div>
-    <div class="blog-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:32px;">
+    <div class="blog-grid">
       <div class="blog-card">
         <div class="blog-img" style="height:180px; background:#0395D3 url('public/image1.png') center/cover; border-radius:16px 16px 0 0;"></div>
         <div class="blog-content" style="padding:20px;">
@@ -436,27 +651,54 @@
       </div>
     </div>
   </section>
-  <section id="contact" class="fade-in" style="text-align:center;">
-    <div class="section-title">Contact</div>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="4" placeholder="Your Message" required></textarea>
-      <button class="cta-btn" type="submit">Send Message</button>
-    </form>
-    <div style="margin-top:32px;text-align:center;">
-      <strong>Office:</strong> 123 Technology Drive, Abuja, Nigeria<br>
-      <strong>Email:</strong> <a href="mailto:hello@pable.tech" style="color:#0395D3;">hello@pable.tech</a><br>
-      <strong>Social:</strong>
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook" style="color:#0395D3;margin:0 8px;">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#0395D3"/><path d="M18 12h2V9h-2c-2.21 0-4 1.79-4 4v2h-2v3h2v7h3v-7h2.5l.5-3H19v-2c0-.55.45-1 1-1z" fill="#fff"/></svg>
-      </a>
-      <a href="https://twitter.com" target="_blank" aria-label="Twitter" style="color:#0395D3;margin:0 8px;">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#43b673"/><path d="M24 11.5a5.5 5.5 0 01-1.57.43A2.75 2.75 0 0023.34 10a5.5 5.5 0 01-1.74.66A2.75 2.75 0 0016 13.25c0 .22.02.43.07.64A7.8 7.8 0 0110 10.92a2.75 2.75 0 00.85 3.67A2.7 2.7 0 009.5 14v.03a2.75 2.75 0 002.2 2.7c-.41.11-.84.13-1.27.05a2.75 2.75 0 002.57 1.91A5.5 5.5 0 018 22.5a7.77 7.77 0 004.22 1.24c5.06 0 7.83-4.19 7.83-7.83 0-.12 0-.24-.01-.36A5.6 5.6 0 0024 11.5z" fill="#fff"/></svg>
-      </a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-          <svg width="32" height="32" viewBox="0 0 448 512" fill="none"><path fill="#E1306C" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.5 0-71.5-32-71.5-71.5s32-71.5 71.5-71.5 71.5 32 71.5 71.5-32 71.5-71.5 71.5zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9S388.6 24.6 353.3 22.9c-35.3-1.7-141.3-1.7-176.6 0-35.3 1.7-66.7 9.9-92.9 36.2S24.6 123.4 22.9 158.7c-1.7 35.3-1.7 141.3 0 176.6 1.7 35.3 9.9 66.7 36.2 92.9s57.6 34.5 92.9 36.2c35.3 1.7 141.3 1.7 176.6 0 35.3-1.7 66.7-9.9 92.9-36.2s34.5-57.6 36.2-92.9c1.7-35.3 1.7-141.3 0-176.6zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.5 11.7-99.5 9-132.3 9s-102.7 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.5-9-99.5-9-132.3s-2.6-102.7 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5 29.5-11.7 99.5-9 132.3-9s102.7-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.5 9 99.5 9 132.3s2.6 102.7-9 132.3z"/></svg>
-        </a>
+  <section id="contact" class="section fade-in">
+    <div class="section-title" style="text-align:center;">Get in Touch</div>
+    <p style="text-align:center; max-width:600px; margin:0 auto 48px; color:#555;">
+        Have a question or a project in mind? We'd love to hear from you.
+    </p>
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p>Fill up the form and our team will get back to you within 24 hours.</p>
+            <div class="info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>+234 802 1152 172</span>
+            </div>
+            <div class="info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <a href="mailto:hello@pable.tech" style="color:inherit; text-decoration:none;">pabletech@gmail.com</a>
+            </div>
+            <div class="info-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>123 Technology Drive, Abuja, Nigeria</span>
+            </div>
+            <div class="contact-socials">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/pable_tech/" target="_blank" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-2.163C8.74 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.74 0 12s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.28.058 1.687.072 4.947.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.687.073-4.947s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98C15.667.014 15.26 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+                </a>
+            </div>
+        </div>
+        <form class="contact-form-modern">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+            </div>
+            <button type="submit" class="cta-btn">Send Message</button>
+        </form>
     </div>
   </section>
   <footer class="footer">
