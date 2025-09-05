@@ -6,6 +6,7 @@
   <title>Pable Technology Solutions</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin="anonymous">
   <style>
     /* Base & Layout Styles */
     .logo-pable { width: 54px; height: 54px; border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(3,149,211,0.08); display: flex; align-items: center; justify-content: center; }
@@ -172,9 +173,9 @@
     }
     .bar {
       display: block;
-      width: 20px;
+      width: 25px;
       height: 3px;
-      margin: 2px auto;
+      margin: 5px auto;
       background-color: #0395D3;
       transition: all 0.3s ease-in-out;
     }
@@ -253,6 +254,37 @@
     .contact-form-modern .cta-btn { align-self: flex-start; }
     .footer { background: #f3e5f5; color: #333; text-align: center; padding: 32px 10px; margin-top: 64px; font-size: 1rem; }
     @media (max-width: 900px) { .contact-wrapper { grid-template-columns: 1fr; padding: 24px; } }
+
+    /* Enhanced Solutions & Audience Sections */
+    .solution-icon, .audience-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    .solution-icon svg, .audience-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+    .card:hover .solution-icon, .audience-card:hover .audience-icon {
+        transform: translateY(-5px) scale(1.1) rotate(-8deg);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    #solutions {
+        background: #f7fafd;
+        border-radius: 24px;
+    }
+    .card, .audience-card {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+    }
 
     .mission-grid {
       display: grid;
@@ -368,7 +400,7 @@
       </button>
     </div>
   </nav>
-  <section id="home" class="section hero-bg fade-in">
+  <section id="home" class="section hero-bg">
     <div style="position:relative;z-index:1;" class="fade-in delay-1">
       <h1 style="font-size:2.7rem;font-weight:800;color:#0395D3;margin-bottom:18px;">Building Smarter Solutions for Education, Transportation & Beyond.</h1>
       <p style="font-size:1.2rem;color:#333;max-width:600px;margin-bottom:32px;line-height:1.6;">Modern, Africa-first technology for safer schools, smarter mobility, and connected communities.</p>
@@ -410,21 +442,42 @@
       <div class="team-member fade-in delay-3"><img src="team/dara.jpg" alt="Promise" style="width:80px;height:80px;border-radius:50%;margin-bottom:10px;"><h4>Blessing</h4><p>CTO</p></div>
     </div>
   </section>
-  <section id="solutions" class="section fade-in delay-2">
+  <section id="solutions" class="section fade-in delay-2" style="text-align:center;">
     <div class="section-title">Our Solutions</div>
     <div class="solutions-grid">
-      <div class="card fade-in delay-1"><h3>MySchoolBus</h3><p>Student transport & attendance management. <br><a href="index.html" style="color:#0395D3;text-decoration:underline;">Visit MySchoolBus</a></p></div>
-      <div class="card fade-in delay-2"><h3>Future Learning Tools</h3><p>AI tutors, parent-teacher engagement, digital classrooms.</p></div>
-      <div class="card fade-in delay-3"><h3>Smart Mobility</h3><p>Live tracking, safety alerts, fleet management.</p></div>
-      <div class="card fade-in delay-4"><h3>Other Innovations</h3><p>IoT, digital payments, AI tools (coming soon).</p></div>
+      <div class="card fade-in delay-1">
+        <div class="solution-icon" style="background-color: #e3f2fd;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0395D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2l.64-2.56a2 2 0 0 0-1.94-2.44H5.3a2 2 0 0 0-1.94 2.44L4 17h2"/><path d="M19 17H5v-5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5z"/><path d="M5 17v-2h14v2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></div>
+        <h3>MySchoolBus</h3><p>Student transport & attendance management. <br><a href="index.html" style="color:#0395D3;text-decoration:underline;">Visit MySchoolBus</a></p>
+      </div>
+      <div class="card fade-in delay-2">
+        <div class="solution-icon" style="background-color: #f3e5f5;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#a259c6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5C17.7 10.2 18 9 18 7.5a6 6 0 0 0-12 0c0 1.5.3 2.7 1.5 3.9.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></div>
+        <h3>Future Learning Tools</h3><p>AI tutors, parent-teacher engagement, digital classrooms.</p>
+      </div>
+      <div class="card fade-in delay-3">
+        <div class="solution-icon" style="background-color: #e8f5e9;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#43b673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3>Smart Mobility</h3><p>Live tracking, safety alerts, fleet management.</p>
+      </div>
+      <div class="card fade-in delay-4">
+        <div class="solution-icon" style="background-color: #f1f8e9;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7cb342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg></div>
+        <h3>Other Innovations</h3><p>IoT, digital payments, AI tools (coming soon).</p>
+      </div>
     </div>
   </section>
-  <section id="audience" class="section fade-in delay-3">
+  <section id="audience" class="section fade-in delay-3" style="text-align:center;">
     <div class="section-title">Who We Help</div>
     <div class="audience-grid">
-      <div class="audience-card fade-in delay-1"><h3>For Schools</h3><p>Reduce admin time, improve safety, and connect with parents.</p></div>
-      <div class="audience-card fade-in delay-2"><h3>For Parents</h3><p>Track your child’s commute, get instant alerts, and stay informed.</p></div>
-      <div class="audience-card fade-in delay-3"><h3>For Organizations</h3><p>Custom solutions for fleets, education groups, and NGOs.</p></div>
+      <div class="audience-card fade-in delay-1">
+        <div class="audience-icon" style="background-color: #e3f2fd;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0395D3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></div>
+        <h3>For Schools</h3><p>Reduce admin time, improve safety, and connect with parents.</p>
+      </div>
+      <div class="audience-card fade-in delay-2">
+        <div class="audience-icon" style="background-color: #e8f5e9;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#43b673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>For Parents</h3><p>Track your child’s commute, get instant alerts, and stay informed.</p>
+      </div>
+      <div class="audience-card fade-in delay-3">
+        <div class="audience-icon" style="background-color: #f3e5f5;"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#a259c6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h.01"/><path d="M7 12h.01"/><path d="M7 17h.01"/><path d="M12 7h.01"/><path d="M12 12h.01"/><path d="M12 17h.01"/><path d="M17 7h.01"/><path d="M17 12h.01"/><path d="M17 17h.01"/></svg></div>
+        <h3>For Organizations</h3><p>Custom solutions for fleets, education groups, and NGOs.</p>
+      </div>
     </div>
   </section>
   <section id="impact" class="section fade-in delay-4">
@@ -544,7 +597,7 @@
         <div class="achievement-container">
             <div class="achievement-visual">
                 <!-- You can add a photo of your team at the event here -->
-                <img src="gitex.jpg" alt="MySchoolBus Team at GITEX Supernova Challenge">
+                <img src="gitex.jpg" alt="MySchoolBus Team at GITEX Supernova Challenge" loading="lazy" width="800" height="600">
             </div>
             <div class="achievement-text">
                 <h2 class="achievement-title">Recognized for Innovation</h2>
@@ -611,7 +664,7 @@
     </div>
     <div class="blog-grid">
       <div class="blog-card">
-        <div class="blog-img" style="height:180px; background:#0395D3 url('public/image1.png') center/cover; border-radius:16px 16px 0 0;"></div>
+        <div class="blog-img" style="height:180px; background: url('https://i.pinimg.com/1200x/9d/f0/38/9df03899d64cbb46fc394dc9dca9a91d.jpg') center/cover; border-radius:16px 16px 0 0;"></div>
         <div class="blog-content" style="padding:20px;">
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
             <img src="team/dara.jpg" alt="Author" style="width:32px; height:32px; border-radius:50%;">
@@ -624,7 +677,7 @@
         </div>
       </div>
       <div class="blog-card">
-        <div class="blog-img" style="height:180px; background:#43b673 url('public/image1.png') center/cover; border-radius:16px 16px 0 0;"></div>
+        <div class="blog-img" style="height:180px; background: url('https://i.pinimg.com/736x/e7/2e/e8/e72ee87c64d12f3597a7c023b53fec1a.jpg') center/cover; border-radius:16px 16px 0 0;"></div>
         <div class="blog-content" style="padding:20px;">
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
             <img src="team/peace.jpg" alt="Author" style="width:32px; height:32px; border-radius:50%;">
@@ -637,7 +690,7 @@
         </div>
       </div>
       <div class="blog-card">
-        <div class="blog-img" style="height:180px; background:#f3e5f5 url('public/image1.png') center/cover; border-radius:16px 16px 0 0;"></div>
+        <div class="blog-img" style="height:180px; background: url('https://i.pinimg.com/736x/b3/e8/84/b3e884455ffca64ea7d410a5003f79f8.jpg') center/cover; border-radius:16px 16px 0 0;"></div>
         <div class="blog-content" style="padding:20px;">
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
             <img src="team/promise.jpg" alt="Author" style="width:32px; height:32px; border-radius:50%;">
